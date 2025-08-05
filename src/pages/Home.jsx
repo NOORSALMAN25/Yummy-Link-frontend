@@ -18,15 +18,15 @@ const Home = () => {
     getStores()
   }, [])
 
-
-
   const getSearchResults = async (e) => {
+    console.log("getSearchResults")
     e.preventDefault()
     setSearched(true)
     const response = await axios.get(
-      `http://localhost:3000?search=${searchQuery}`
+      `http://localhost:3000/search?search=${searchQuery}`
     )
     setSearchResult(response.data)
+    console.log(response.data)
     setSearchQuery('')
   }
 
@@ -34,24 +34,25 @@ const Home = () => {
     setSearchQuery(event.target.value)
   }
 
+
   return (
     <div>
       <Search
         searchQuery={searchQuery}
         handleChange={handleChange}
-        getSearchResult={getSearchResults}
+        getSearchResults={getSearchResults}
       />
 
       <div className="search">
-        <h2>Search Results</h2>
         <section>
-          {searchResult.map((store) => (
-            <Store key={store.id} />
-          ))}
+          <h1>search</h1>
+          {searched &&
+            searchResult.map((store) => <Store key={store.id} store={store} />)}
         </section>
       </div>
       <div>
-        <section>
+        <section className="-results">
+          <h1>stores</h1>
           {stores.map((store) => (
             <Store key={store.id} store={store} />
           ))}
