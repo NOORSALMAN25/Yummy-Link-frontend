@@ -3,7 +3,11 @@ const Store = ({ store }) => {
     <>
       <div>
         <h2>{store.name}</h2>
-        <h3>hello</h3>
+        <img
+          src={`http://localhost:3000${store.image}`}
+          alt={`${store.name} store`}
+        />
+        <p>Opening Time: {store.openTime}</p>
       </div>
     </>
   )

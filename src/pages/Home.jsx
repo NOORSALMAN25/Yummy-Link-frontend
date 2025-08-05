@@ -12,19 +12,16 @@ const Home = () => {
   useEffect(() => {
     const getStores = async () => {
       const response = await axios.get(`http://localhost:3000/`)
-      console.log(response)
       setStore(response.data)
     }
     getStores()
   }, [])
 
-
-
   const getSearchResults = async (e) => {
     e.preventDefault()
     setSearched(true)
     const response = await axios.get(
-      `http://localhost:3000?search=${searchQuery}`
+      `http://localhost:3000/search?search=${encodeURIComponent(searchQuery)}`
     )
     setSearchResult(response.data)
     setSearchQuery('')
@@ -43,14 +40,22 @@ const Home = () => {
       />
 
       <div className="search">
-        <h2>Search Results</h2>
-        <section>
-          {searchResult.map((store) => (
-            <Store key={store.id} />
-          ))}
-        </section>
+        {searched && <h2>Search Results</h2>}
+        {searched && (
+          <section>
+            {searchResult.length > 0 ? (
+              searchResult.map((store) => (
+                <Store key={store.storeId ?? store.id} store={store} />
+              ))
+            ) : (
+              <p>No results</p>
+            )}
+          </section>
+        )}
       </div>
       <div>
+        <h2>Stores</h2>
+
         <section>
           {stores.map((store) => (
             <Store key={store.id} store={store} />

@@ -1,7 +1,13 @@
-const Search = () => {
+const Search = ({ searchQuery, handleChange, getSearchResult }) => {
   return (
-    <form>
-      <input type="text" name="search" placeholder="Search Games"></input>
+    <form onSubmit={getSearchResult}>
+      <input
+        type="text"
+        name="search"
+        placeholder="Search Stores"
+        value={searchQuery}
+        onChange={handleChange}
+      ></input>
       <button type="submit">Search</button>
     </form>
   )
