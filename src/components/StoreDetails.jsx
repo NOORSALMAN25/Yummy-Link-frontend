@@ -1,3 +1,4 @@
+import Review from "./Review"
 const StoreDetails = () => {
   return <></>
 }
