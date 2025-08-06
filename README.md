@@ -1,4 +1,4 @@
-# 🧁Yummy-Link-Frontend🍭
+# 🧁YummyLink-Frontend🍭
 
 ![img](images/logo.png)
 
