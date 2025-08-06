@@ -5,17 +5,18 @@ import Home from './pages/Home'
 import About from './pages/About'
 import StoreDetails from './components/StoreDetails'
 import Header from './components/Header'
-import Search from './components/Search'
 
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/about' element={<About />}/>
-        <Route path="/stores/:id" element={<StoreDetails />} />
-      </Routes>
+      <div className="theme-park-background">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/stores/:id" element={<StoreDetails />} />
+        </Routes>
+      </div>
     </>
   )
 }

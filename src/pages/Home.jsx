@@ -2,7 +2,7 @@ import Store from '../components/Store'
 import axios from 'axios'
 import Search from '../components/Search'
 import { useState, useEffect } from 'react'
-import StoreDetails from '../components/StoreDetails'
+import '../../public/styleSheets/home-style.css'
 
 const Home = () => {
   const [searchResult, setSearchResult] = useState([])
@@ -57,9 +57,9 @@ const Home = () => {
         )}
       </div>
       <div>
-        <h2>Stores</h2>
+        <h1>🏪 All Delicious Stalls</h1>
 
-        <section>
+        <section className="stores-container">
           {stores.map((store) => (
             <Store key={store.id} store={store} />
           ))}
