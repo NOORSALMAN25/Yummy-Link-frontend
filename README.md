@@ -10,7 +10,7 @@
 
 YummyLink is a user-friendly web application that helps park visitors discover delicious snacks and treats around the amusement park. The frontend is built to provide an engaging and visually appealing experience, allowing users to search for specific items and view detailed Food stall cards—all within a colorful theme park environment.
 
-[Yummy-Link-BackEnd](NOORSALMAN25/Yummy-Link-backend )
+[Yummy-Link-BackEnd](https://github.com/NOORSALMAN25/Yummy-Link-backend)
 
 ## **_Technologies Used💻_**
 
