@@ -2,6 +2,7 @@ import Store from '../components/Store'
 import axios from 'axios'
 import Search from '../components/Search'
 import { useState, useEffect } from 'react'
+import StoreDetails from '../components/StoreDetails'
 
 const Home = () => {
   const [searchResult, setSearchResult] = useState([])
@@ -11,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     const getStores = async () => {
-      const response = await axios.get(`http://localhost:3000/`)
+      const response = await axios.get(`http://localhost:3000/stores/`)
       setStore(response.data)
     }
     getStores()
@@ -21,7 +22,9 @@ const Home = () => {
     e.preventDefault()
     setSearched(true)
     const response = await axios.get(
-      `http://localhost:3000/search?search=${encodeURIComponent(searchQuery)}`
+      `http://localhost:3000/stores/search?search=${encodeURIComponent(
+        searchQuery
+      )}`
     )
     setSearchResult(response.data)
     setSearchQuery('')
