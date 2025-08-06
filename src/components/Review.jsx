@@ -11,7 +11,6 @@ const Review = ({ storeId }) => {
 
   useEffect(() => {
     if (!storeId) return
-
     setLoading(true)
     setError(null)
     axios
@@ -20,7 +19,6 @@ const Review = ({ storeId }) => {
       .catch((err) => setError('Failed to load reviews'))
       .finally(() => setLoading(false))
   }, [storeId])
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!username || !comment || rating < 0 || rating > 5) {
@@ -31,6 +29,9 @@ const Review = ({ storeId }) => {
     try {
       setLoading(true)
       setError(null)
+      console.log(username)
+      console.log(comment)
+      console.log(Number(rating))
       await axios.post(`http://localhost:3000/stores/${storeId}/reviews`, {
         name: username,
         comment,
@@ -62,7 +63,6 @@ const Review = ({ storeId }) => {
   return (
     <div>
       <h2>Reviews</h2>
-
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
@@ -70,7 +70,12 @@ const Review = ({ storeId }) => {
 
       {reviews.map((rev) => (
         <div key={rev._id}>
-          <strong>{rev.name}</strong> ⭐ {rev.rating}
+          <strong>{`By ${rev.name}`}</strong>
+          <div>
+            {Array.from({ length: rev.rating }, (_, i) => (
+              <span key={i}>⭐</span>
+            ))}
+          </div>
           <p>{rev.comment}</p>
           <button onClick={() => handleDelete(rev._id)}>Delete</button>
         </div>
