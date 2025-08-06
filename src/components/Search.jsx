@@ -4,7 +4,7 @@ const Search = ({ searchQuery, handleChange, getSearchResult }) => {
       <input
         type="text"
         name="search"
-        placeholder="Search Stores"
+        placeholder="Find Your Next Yummy Snack..."
         value={searchQuery}
         onChange={handleChange}
       ></input>
