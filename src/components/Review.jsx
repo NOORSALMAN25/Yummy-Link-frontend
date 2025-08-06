@@ -29,9 +29,6 @@ const Review = ({ storeId }) => {
     try {
       setLoading(true)
       setError(null)
-      console.log(username)
-      console.log(comment)
-      console.log(Number(rating))
       await axios.post(`http://localhost:3000/stores/${storeId}/reviews`, {
         name: username,
         comment,
@@ -53,7 +50,9 @@ const Review = ({ storeId }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/reviews/${id}`)
+      await axios.delete(
+        `http://localhost:3000/stores/${storeId}/reviews/${id}`
+      )
       setReviews(reviews.filter((r) => r._id !== id))
     } catch (err) {
       alert('Failed to delete review')
