@@ -8,7 +8,7 @@
 
 ## **_Description🌟_**
 
-YummyLink is a user-friendly web application that helps park visitors discover delicious snacks and treats around the amusement park. The frontend is built to provide an engaging and visually appealing experience, allowing users to search for specific items, and view detailed Food stall cards—all within a colorful theme park environment.
+YummyLink is a user-friendly web application that helps park visitors discover delicious snacks and treats around the amusement park. The frontend is built to provide an engaging and visually appealing experience, allowing users to search for specific items and view detailed Food stall cards—all within a colorful theme park environment.
 
 ## **_Technologies Used💻_**
 
@@ -16,6 +16,10 @@ YummyLink is a user-friendly web application that helps park visitors discover d
 
   - React
   - Axios
+  - Express
+  - Node.js
+  - CSS
+  - JavaScript
 
 ## **_Entity Relationship Diagram (ERD)_**
 
