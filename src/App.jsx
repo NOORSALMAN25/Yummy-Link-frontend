@@ -1,5 +1,5 @@
 import './App.css'
-import { Router } from 'react-router-dom'
+import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -11,7 +11,10 @@ function App() {
   return (
     <>
       <Header />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/stores/:id" element={<StoreDetails />} />
+      </Routes>
     </>
   )
 }
