@@ -1,0 +1,150 @@
+.reviews-wrap {
+  --accent: #14b8a6;
+  --accent-soft: #ccfbf1;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --danger: #ef4444;
+  --card: #ffffff;
+  --border: #eef2f7;
+
+  margin-top: 12px;
+}
+
+.reviews-title {
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin: 0 0 10px 0;
+  color: var(--accent);
+}
+
+.reviews-status,
+.reviews-empty {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 8px 0 16px;
+}
+
+.reviews-error {
+  color: var(--danger);
+  font-weight: 600;
+  margin: 8px 0 16px;
+}
+
+.reviews-list {
+  display: grid;
+  gap: 14px;
+  margin: 10px 0 24px;
+}
+
+.review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.review-author {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.review-text {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 6px 0 12px;
+  white-space: pre-wrap;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 8px 18px rgba(20, 184, 166, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.form-title {
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.review-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 40px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  display: grid;
+  gap: 10px;
+
+  width: 900px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 10px;
+  align-items: center;
+}
+
+.input,
+.textarea {
+  width: 90%;
+  border: 2px solid var(--border);
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.input-small {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.rating-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rating-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}

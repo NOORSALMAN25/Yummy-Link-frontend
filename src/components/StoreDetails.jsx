@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ReviewsSection from '../components/Review'
+import '../../public/styleSheets/storeDetails-style.css'
 
 const StoreDetails = () => {
   const { id } = useParams()
@@ -19,39 +20,61 @@ const StoreDetails = () => {
       )
   }, [id])
 
-  if (error) return <p style={{ color: 'crimson' }}>{error}</p>
-  if (!store) return <p>Loading...</p>
+  if (error) return <p className="error-text">{error}</p>
+  if (!store) return <p className="loading-text">Loading...</p>
 
   return (
-    <div>
-      <h1>{store.name}</h1>
+    <div className="center">
+      <div className="details-page">
+        <section className="hero">
+          <div className="hero-inner">
+            <h1 className="store-name">{store.name}</h1>
+            <p className="store-open">Open: {store.openTime}</p>
+          </div>
+        </section>
 
-      {store.image && (
-        <img
-          src={`http://localhost:3000${store.image}`}
-          alt={store.name}
-          style={{ maxWidth: 400 }}
-        />
-      )}
+        <section className="content">
+          <div className="media">
+            {store.image && (
+              <img
+                src={`http://localhost:3000${store.image}`}
+                alt={store.name}
+                className="store-image"
+              />
+            )}
+          </div>
 
-      <p>{store.description}</p>
-      <p>
-        <strong>Open:</strong> {store.openTime}
-      </p>
+          <div className="info">
+            <h2 className="section-title">About</h2>
+            <p className="store-desc">{store.description}</p>
+          </div>
+        </section>
 
-      <h3>Menu</h3>
-      <ul>
-        {Array.isArray(store.menu) &&
-          store.menu.map((item, i) => (
-            <li key={i}>
-              {item.name} {item.price != null ? `- ${item.price}` : ''}
-            </li>
-          ))}
-      </ul>
+        <section className="menu">
+          <h2 className="section-title">Menu</h2>
+          <ul className="menu-grid">
+            {Array.isArray(store.menu) &&
+              store.menu.map((item, i) => (
+                <li key={i} className="menu-card">
+                  <div className="menu-header">
+                    <span className="menu-name">{item.name}</span>
+                    {item.price != null && (
+                      <span className="menu-price">{`${item.price} BD`}</span>
+                    )}
+                  </div>
+                  {item.description && (
+                    <p className="menu-desc">{item.description}</p>
+                  )}
+                </li>
+              ))}
+          </ul>
+        </section>
 
-      <ReviewsSection storeId={store.id} />
+        <section className="reviews">
+          <ReviewsSection storeId={store.id} />
+        </section>
+      </div>
     </div>
   )
 }
-
 export default StoreDetails
